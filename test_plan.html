@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrainerMate Zoom Marketplace Reviewer Test Plan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #222;
+    }
+    h1, h2 {
+      color: #0b57d0;
+    }
+    .notice {
+      background: #f5f9ff;
+      border-left: 4px solid #0b57d0;
+      padding: 16px;
+      margin: 20px 0;
+    }
+    .section {
+      margin-top: 30px;
+    }
+    .contact {
+      background: #fafafa;
+      border: 1px solid #ddd;
+      padding: 16px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>TrainerMate Zoom Marketplace Reviewer Test Plan</h1>
+
+<div class="notice">
+  <strong>Reviewer Note:</strong><br><br>
+  TrainerMate is currently delivered as a secure local desktop workflow.
+  Zoom reviewers do not need access to any FOBS or third-party provider portals,
+  and no provider credentials are supplied as these are private third-party systems.
+  Provider access is not part of Zoom Marketplace review.
+  Review should focus only on the Zoom OAuth authorization flow, callback handling,
+  requested Zoom scopes, and Zoom meeting read/create/update functionality.
+</div>
+
+<div class="section">
+  <h2>1. App Overview</h2>
+  <p>
+    TrainerMate is a training session management platform that integrates with Zoom
+    to automate Zoom meeting creation, verification, replacement, and synchronization
+    for scheduled training courses.
+  </p>
+  <p>The Zoom integration allows users to:</p>
+  <ul>
+    <li>Connect their Zoom account securely using Zoom OAuth</li>
+    <li>Read existing scheduled Zoom meetings</li>
+    <li>Create new Zoom meetings when required</li>
+    <li>Update or replace stale Zoom meetings</li>
+    <li>Store meeting metadata locally for course association</li>
+    <li>Disconnect Zoom authorization safely</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>2. Adding and Authorizing the App</h2>
+  <ol>
+    <li>Open TrainerMate dashboard</li>
+    <li>Navigate to the Zoom Account Linking section</li>
+    <li>Click <strong>Connect Zoom Account</strong></li>
+    <li>You will be redirected to Zoom OAuth authorization</li>
+    <li>Approve the requested permissions using your Zoom account</li>
+    <li>After approval, Zoom redirects back to:<br>
+      <strong>https://www.trainermate.xyz/zoom/callback</strong>
+    </li>
+    <li>The linked Zoom account will now appear inside TrainerMate</li>
+  </ol>
+</div>
+
+<div class="section">
+  <h2>3. Testing Meeting Read Access</h2>
+  <ol>
+    <li>With a connected Zoom account, TrainerMate checks scheduled meetings</li>
+    <li>The system reads Zoom meetings using the authorized Zoom account</li>
+    <li>Existing meetings are matched using exact Zoom Meeting ID verification</li>
+    <li>Live meetings are confirmed and reused instead of duplicated</li>
+  </ol>
+</div>
+
+<div class="section">
+  <h2>4. Testing Meeting Creation</h2>
+  <ol>
+    <li>If no valid existing Zoom meeting is found, TrainerMate creates a new scheduled Zoom meeting</li>
+    <li>The meeting includes title, scheduled date/time, meeting link, and password</li>
+    <li>The returned Zoom meeting metadata is stored locally for future verification</li>
+  </ol>
+</div>
+
+<div class="section">
+  <h2>5. Testing Meeting Update / Replacement</h2>
+  <ol>
+    <li>If stale or invalid Zoom details are detected, TrainerMate prepares a replacement</li>
+    <li>Only invalid or non-live meetings are replaced</li>
+    <li>Live meetings are preserved and synced instead of overwritten</li>
+  </ol>
+</div>
+
+<div class="section">
+  <h2>6. Disconnecting / Removing the App</h2>
+  <ol>
+    <li>Users may disconnect Zoom authorization at any time</li>
+    <li>OAuth tokens are invalidated by deauthorization</li>
+    <li>No Zoom passwords are ever stored</li>
+    <li>Stored meeting metadata remains local to the user environment only</li>
+  </ol>
+</div>
+
+<div class="section">
+  <h2>7. Data Handling</h2>
+  <ul>
+    <li>Zoom access and refresh tokens are stored securely using encrypted system credential storage</li>
+    <li>Meeting metadata (meeting ID, join URL, password) may be stored locally in SQLite</li>
+    <li>No Zoom passwords are collected or stored</li>
+    <li>No Zoom data is sold or shared with third parties</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>8. Reviewer Credentials</h2>
+  <p>
+    No FOBS or provider portal credentials are provided because these are private
+    third-party credentials and are not required for Zoom Marketplace review.
+  </p>
+  <p>
+    Reviewers should validate the Zoom OAuth authorization flow and Zoom API functionality
+    using their own Zoom account through the production OAuth authorization flow.
+  </p>
+</div>
+
+<div class="section">
+  <h2>9. Support Contact</h2>
+  <div class="contact">
+    <strong>Support Email:</strong><br>
+    support@trainermate.xyz
+  </div>
+</div>
+
+</body>
+</html>
