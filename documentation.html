@@ -1,37 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TrainerMate Zoom Integration Guide</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrainerMate Documentation</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 1000px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #222; background: #fff; }
+    h1, h2, h3 { color: #0b57d0; }
+    h1 { border-bottom: 2px solid #e5e7eb; padding-bottom: 12px; }
+    .notice { background: #f5f9ff; border-left: 4px solid #0b57d0; padding: 16px; margin: 20px 0; }
+    .warning { background: #fff7ed; border-left: 4px solid #f97316; padding: 16px; margin: 20px 0; }
+    .section { margin-top: 34px; }
+    code { background: #f3f4f6; padding: 2px 5px; border-radius: 4px; }
+    ul, ol { margin-left: 22px; }
+    .contact { background: #fafafa; border: 1px solid #ddd; padding: 16px; margin-top: 20px; }
+    footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid #e5e7eb; color: #555; font-size: 14px; }
+  </style>
 </head>
 <body>
-  <h1>TrainerMate Zoom Integration Guide</h1>
-  <p>This guide explains how to connect, use, and remove Zoom integration within TrainerMate.</p>
 
-  <h2>Adding the App</h2>
+<h1>TrainerMate Documentation</h1>
+
+<div class="notice">
+  <strong>About TrainerMate</strong><br>
+  TrainerMate helps authorised trainers manage scheduled training sessions and connect Zoom meetings to those sessions.
+  It integrates with Zoom using OAuth and uses Zoom meeting APIs to create, verify, and manage scheduled Zoom meetings.
+</div>
+
+<div class="section">
+  <h2>1. Adding the App</h2>
+  <p>To add TrainerMate to your Zoom account:</p>
   <ol>
-    <li>Log in to the TrainerMate dashboard.</li>
-    <li>Go to the Zoom Accounts section.</li>
-    <li>Click Link Zoom Account.</li>
-    <li>Sign in to Zoom and approve access.</li>
-    <li>Your Zoom account will appear inside TrainerMate.</li>
+    <li>Open TrainerMate.</li>
+    <li>Go to the <strong>Zoom accounts</strong> section.</li>
+    <li>Click <strong>Connect Zoom account</strong>.</li>
+    <li>You will be redirected to Zoom to authorize TrainerMate.</li>
+    <li>Review the requested permissions.</li>
+    <li>Click <strong>Allow</strong> to approve access.</li>
+    <li>After approval, Zoom redirects back to TrainerMate using the OAuth callback URL.</li>
+    <li>Your Zoom account will appear as a connected account inside TrainerMate.</li>
   </ol>
+  <p>Production OAuth callback URL:</p>
+  <p><code>https://www.trainermate.xyz/zoom/callback</code></p>
+</div>
 
-  <h2>Using the App</h2>
+<div class="section">
+  <h2>2. Using the App</h2>
+
+  <h3>2.1 Connect a Zoom Account</h3>
+  <p>Users connect Zoom through the TrainerMate dashboard. TrainerMate never asks for or stores a Zoom password. Authorization is completed through Zoom OAuth.</p>
+
+  <h3>2.2 Verify Existing Zoom Meetings</h3>
+  <p>TrainerMate can check whether a scheduled training session already has a valid Zoom meeting. Where meeting details already exist, TrainerMate verifies the exact Zoom Meeting ID against the connected Zoom account.</p>
+
+  <h3>2.3 Create Zoom Meetings</h3>
+  <p>If a scheduled training session does not already have a valid Zoom meeting, TrainerMate can create a scheduled Zoom meeting using the connected Zoom account.</p>
+  <p>The created meeting may include:</p>
   <ul>
-    <li>Verify existing Zoom meetings</li>
-    <li>Create meetings where provider permissions allow</li>
-    <li>Prevent duplicate Zoom meeting creation</li>
-    <li>Sync meeting IDs, join links, and passwords</li>
+    <li>Meeting topic/title</li>
+    <li>Scheduled start time</li>
+    <li>Meeting duration</li>
+    <li>Join URL</li>
+    <li>Meeting ID</li>
+    <li>Meeting password</li>
   </ul>
 
-  <h2>Removing the App</h2>
+  <h3>2.4 Update or Replace Meeting Details</h3>
+  <p>TrainerMate avoids unnecessary duplicate meetings. If existing meeting details are still live in Zoom, they are reused. If meeting details are stale or no longer valid, TrainerMate can prepare replacement meeting details.</p>
+
+  <h3>2.5 Multiple Zoom Accounts</h3>
+  <p>TrainerMate supports linked Zoom account selection so different providers or workflows can use different connected Zoom accounts where appropriate.</p>
+
+  <h3>2.6 Provider-Managed Meetings</h3>
+  <p>Some providers manage their own Zoom meeting details. In these cases, TrainerMate can be configured as read-only for that provider. Read-only mode prevents Zoom writes while still allowing permitted verification behavior.</p>
+</div>
+
+<div class="section">
+  <h2>3. Removing the App</h2>
+  <p>You can remove TrainerMate access from your Zoom account at any time.</p>
+
+  <h3>3.1 Remove from TrainerMate</h3>
   <ol>
-    <li>Open Zoom Marketplace.</li>
-    <li>Go to Manage → Added Apps.</li>
-    <li>Find TrainerMate.</li>
-    <li>Click Remove or Uninstall.</li>
+    <li>Open TrainerMate.</li>
+    <li>Go to the <strong>Zoom accounts</strong> section.</li>
+    <li>Select the connected Zoom account.</li>
+    <li>Click <strong>Disconnect</strong>.</li>
+    <li>The account is removed from TrainerMate's connected Zoom account list.</li>
   </ol>
+
+  <h3>3.2 Remove from Zoom Marketplace</h3>
+  <ol>
+    <li>Sign in to your Zoom account.</li>
+    <li>Open the Zoom App Marketplace.</li>
+    <li>Go to <strong>Manage</strong>.</li>
+    <li>Find TrainerMate in your added apps.</li>
+    <li>Click <strong>Remove</strong> or <strong>Uninstall</strong>.</li>
+    <li>Confirm removal.</li>
+  </ol>
+
+  <div class="warning">
+    <strong>Effect of removing the app:</strong><br>
+    Removing TrainerMate revokes its ability to access your Zoom account through OAuth. TrainerMate will no longer be able to create, read, verify, or update Zoom meetings for that connected account unless you reconnect it.
+  </div>
+</div>
+
+<div class="section">
+  <h2>4. Data Handling and Deauthorization</h2>
+  <p>TrainerMate uses Zoom data only to provide Zoom meeting management functionality.</p>
+
+  <h3>4.1 Data Stored</h3>
+  <p>TrainerMate may store the following Zoom meeting metadata locally:</p>
+  <ul>
+    <li>Meeting ID</li>
+    <li>Join URL</li>
+    <li>Meeting password</li>
+    <li>Meeting topic/title</li>
+    <li>Scheduled start time</li>
+  </ul>
+
+  <h3>4.2 Token Storage</h3>
+  <p>Zoom OAuth access and refresh tokens are stored using secure local credential storage, such as the operating system's keyring or credential manager.</p>
+
+  <h3>4.3 Data Not Stored</h3>
+  <ul>
+    <li>TrainerMate does not collect or store Zoom account passwords.</li>
+    <li>TrainerMate does not sell Zoom data.</li>
+    <li>TrainerMate does not share Zoom data with third parties.</li>
+  </ul>
+
+  <h3>4.4 Data Removal After Deauthorization</h3>
+  <p>When a user disconnects or removes TrainerMate, OAuth access is revoked. Stored OAuth tokens are removed from local credential storage where applicable. Local meeting metadata may remain on the user's device for audit or session history unless the user deletes the local TrainerMate data.</p>
+</div>
+
+<div class="section">
+  <h2>5. Troubleshooting</h2>
+
+  <h3>5.1 Zoom Authorization Fails</h3>
+  <ul>
+    <li>Confirm you are using the correct Zoom account.</li>
+    <li>Confirm popup blockers or browser security tools are not blocking the OAuth page.</li>
+    <li>Try reconnecting the Zoom account from TrainerMate.</li>
+  </ul>
+
+  <h3>5.2 Callback Page Shows Missing Details</h3>
+  <p>If the callback page says Zoom did not return the required details, restart the Zoom connection flow from TrainerMate. The callback URL should normally be reached after Zoom returns an authorization code.</p>
+
+  <h3>5.3 Meeting Verification Fails</h3>
+  <ul>
+    <li>Reconnect the Zoom account.</li>
+    <li>Confirm the connected Zoom account owns or can access the meeting being verified.</li>
+    <li>Confirm the meeting has not been deleted in Zoom.</li>
+  </ul>
+
+  <h3>5.4 Duplicate Meetings</h3>
+  <p>TrainerMate verifies exact Meeting IDs before creating replacements. If duplicate meetings are suspected, check the connected Zoom account and reconnect Zoom if needed.</p>
+
+  <h3>5.5 Provider Portal Access</h3>
+  <p>Provider portal access is controlled by the relevant third-party provider. TrainerMate users must only use credentials they are authorized to use.</p>
+</div>
+
+<div class="section">
+  <h2>6. Zoom Scopes Used</h2>
+  <p>TrainerMate requests Zoom permissions only for the Zoom meeting functionality it provides.</p>
+  <ul>
+    <li>Read meeting information to verify existing scheduled meetings.</li>
+    <li>Create scheduled meetings when required for training sessions.</li>
+    <li>Update meeting details when necessary.</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>7. Support</h2>
+  <div class="contact">
+    <strong>Support Email:</strong><br>
+    support@trainermate.xyz
+  </div>
+</div>
+
+<footer>
+  TrainerMate Documentation<br>
+  Last updated: 2026
+</footer>
+
 </body>
 </html>
