@@ -48,7 +48,7 @@
 </head>
 <body>
   <main class="card">
-    <h1>Connecting Zoom to TrainerMate…</h1>
+    <h1>Connecting Zoom to TrainerMate...</h1>
     <p id="status">Sending Zoom back to the TrainerMate app running on this computer.</p>
     <p class="small">TrainerMate must be open locally for this to complete.</p>
     <p id="manual" class="small"></p>
@@ -67,7 +67,7 @@
 
       if (error) {
         statusEl.className = "error";
-        statusEl.textContent = "Zoom connection failed: " + error + (errorDescription ? " — " + errorDescription : "");
+        statusEl.textContent = "Zoom connection failed: " + error + (errorDescription ? " - " + errorDescription : "");
         return;
       }
 
@@ -78,11 +78,11 @@
       }
 
       const localUrl =
-        "https://127.0.0.1:5000/zoom/callback?" +
+        "http://127.0.0.1:5000/zoom/callback?" +
         new URLSearchParams({ code: code, state: state }).toString() +
         hash;
 
-      statusEl.textContent = "Opening local TrainerMate callback…";
+      statusEl.textContent = "Opening local TrainerMate callback...";
 
       const a = document.createElement("a");
       a.href = localUrl;
