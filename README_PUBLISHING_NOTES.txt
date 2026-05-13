@@ -1,21 +1,24 @@
-TrainerMate website mockup
+TrainerMate website - GitHub Pages ready build
 
-Upload the contents of this folder to the root of trainermate.xyz.
+What changed in this fixed version:
+1. Added .nojekyll so GitHub Pages does not process or skip files unexpectedly.
+2. Added CNAME so the custom domain remains www.trainermate.xyz when pushed.
+3. Kept assets/styles.css, but also embedded the same CSS inside every HTML page so the site still displays correctly even if GitHub/browser caching or a stylesheet path causes issues.
+4. Added a cache-busting stylesheet URL: ./assets/styles.css?v=20260513.
 
-Before publishing:
-1. Replace [Your legal trading name] and [your business address].
-2. Confirm your exact support email and business identity.
-3. Replace the download placeholder with the real installer URL.
-4. Put the installer SHA-256 checksum into the admin panel before enabling in-app update installation.
-5. Have the Terms and Privacy pages reviewed against your actual payment provider, hosting provider, support workflow and company/trading structure.
-6. Check all links manually after upload.
+How to publish:
+1. Open your GitHub repository.
+2. Upload/replace the contents of this zip at the root of the branch/folder that GitHub Pages publishes from.
+   - If GitHub Pages is set to main / root, these files go directly in the repo root.
+   - If GitHub Pages is set to main / docs, put these files directly inside docs.
+3. Commit the changes.
+4. Wait a minute or two for GitHub Pages to deploy.
+5. Open https://www.trainermate.xyz/ and press Ctrl + F5 for a hard refresh.
 
-Recommended pages:
-- index.html
-- pricing.html
-- download.html
-- security.html
-- privacy.html
-- terms.html
-- support.html
-- zoom-deauthorization.html
+Important:
+Do not upload the enclosing folder itself if GitHub Pages expects the files at root. The files index.html, CNAME, .nojekyll, and the assets folder should sit directly in the publishing root.
+
+Before going fully live:
+- Replace the download placeholder with the real installer URL.
+- Confirm your support email and legal/trading details.
+- Review privacy/terms against your exact payment provider, hosting setup and support workflow.
