@@ -1,0 +1,7 @@
+{
+  "latest_version": "1.0.116",
+  "minimum_version": "",
+  "download_url": "https://github.com/chrisbt123/trainermate/releases/download/v1.0.116/TrainerMate-v1.0.116-Setup.exe",
+  "installer_sha256": "8c224e7bd87c14bf5a0d264daa33cad0c073d6846fbba375ff2bd133d30f785b",
+  "release_notes": "A small, friendly update: TrainerMate can now check the official release feed and gently let you know when a newer version is ready. You will see a short summary before choosing whether to update."
+}
