@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">TrainerMate login and setup screenshot with annotations</title>
+  <desc id="desc">A simple annotated TrainerMate window showing account sign-in and the Zoom accounts menu.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f8fbff"/>
+      <stop offset="1" stop-color="#e0f2fe"/>
+    </linearGradient>
+    <linearGradient id="btn" x1="0" x2="1">
+      <stop offset="0" stop-color="#0f969f"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#0f172a" flood-opacity=".16"/>
+    </filter>
+  </defs>
+  <rect width="960" height="600" rx="28" fill="url(#bg)"/>
+  <rect x="70" y="58" width="800" height="484" rx="20" fill="#ffffff" stroke="#cbdff4" filter="url(#shadow)"/>
+  <rect x="70" y="58" width="800" height="54" rx="20" fill="#0f172a"/>
+  <text x="110" y="93" font-family="Segoe UI, Arial" font-size="21" font-weight="800" fill="#ffffff">TrainerMate</text>
+  <rect x="100" y="142" width="238" height="360" rx="18" fill="#17243a"/>
+  <rect x="122" y="178" width="194" height="52" rx="14" fill="#214a78" stroke="#5aa7d6"/>
+  <text x="162" y="211" font-family="Segoe UI, Arial" font-size="20" fill="#ffffff">Dashboard</text>
+  <text x="162" y="276" font-family="Segoe UI, Arial" font-size="20" fill="#e2e8f0">Setup</text>
+  <text x="162" y="340" font-family="Segoe UI, Arial" font-size="20" fill="#e2e8f0">Providers</text>
+  <rect x="122" y="404" width="194" height="52" rx="14" fill="#174c5f" stroke="#5aa7d6"/>
+  <text x="162" y="437" font-family="Segoe UI, Arial" font-size="20" fill="#ffffff">Zoom accounts</text>
+  <rect x="382" y="142" width="462" height="360" rx="18" fill="#f8fbff" stroke="#dbe7f5"/>
+  <circle cx="426" cy="190" r="24" fill="#0f969f"/>
+  <text x="426" y="199" text-anchor="middle" font-family="Segoe UI, Arial" font-size="18" font-weight="800" fill="#ffffff">TM</text>
+  <text x="464" y="198" font-family="Segoe UI, Arial" font-size="24" font-weight="800" fill="#0f172a">Log in</text>
+  <text x="414" y="244" font-family="Segoe UI, Arial" font-size="17" fill="#475569">Enter your TrainerMate ID and password.</text>
+  <rect x="414" y="276" width="312" height="54" rx="14" fill="#ffffff" stroke="#bfdbfe"/>
+  <text x="430" y="310" font-family="Segoe UI, Arial" font-size="18" fill="#64748b">TrainerMate ID</text>
+  <rect x="414" y="350" width="312" height="54" rx="14" fill="#ffffff" stroke="#bfdbfe"/>
+  <text x="430" y="384" font-family="Segoe UI, Arial" font-size="18" fill="#64748b">Password</text>
+  <rect x="414" y="426" width="312" height="56" rx="16" fill="url(#btn)"/>
+  <text x="570" y="461" text-anchor="middle" font-family="Segoe UI, Arial" font-size="22" font-weight="800" fill="#ffffff">Log in</text>
+  <path d="M742 430h108" stroke="#f97316" stroke-width="5" stroke-linecap="round"/>
+  <path d="M742 430l28-18M742 430l28 18" fill="none" stroke="#f97316" stroke-width="5" stroke-linecap="round"/>
+  <rect x="646" y="308" width="262" height="76" rx="18" fill="#fff7ed" stroke="#fdba74" stroke-width="2"/>
+  <text x="668" y="338" font-family="Segoe UI, Arial" font-size="19" font-weight="800" fill="#9a3412">Sign in first</text>
+  <text x="668" y="364" font-family="Segoe UI, Arial" font-size="17" fill="#7c2d12">Use your TrainerMate ID.</text>
+  <path d="M330 432h94" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
+  <path d="M330 432l28-18M330 432l28 18" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
+  <rect x="360" y="468" width="304" height="54" rx="18" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+  <text x="382" y="501" font-family="Segoe UI, Arial" font-size="18" font-weight="800" fill="#1d4ed8">Then open Zoom accounts</text>
+</svg>
