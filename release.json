@@ -1,7 +1,7 @@
 {
-  "latest_version": "1.1.26",
+  "latest_version": "1.1.42",
   "minimum_version": "",
-  "download_url": "https://github.com/chrisbt123/trainermate/releases/download/v1.1.26/TrainerMate-v1.1.26-Setup.exe",
-  "installer_sha256": "3F9041ECA0C17BE7F65C8FA33D25E1CC5451556420CDA42FFFF9976CDE4B7AF1",
-  "release_notes": "TrainerMate v1.1.26 includes the latest user-friendly Zoom connection flow, clearer recovery messages and recent stability fixes."
+  "download_url": "https://github.com/chrisbt123/trainermate/releases/download/v1.1.42/TrainerMate-v1.1.42-Setup.exe",
+  "installer_sha256": "7177AF28BBA84E6C5E106F1BC968B5F31E1BDEBF8FEF0BB72E81CB614191B45F",
+  "release_notes": "TrainerMate v1.1.42 improves first-time setup, tests provider logins while they are added, and gives calmer account-service and Zoom guidance."
 }
