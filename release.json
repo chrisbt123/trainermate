@@ -1,7 +1,7 @@
 {
-  "latest_version": "1.1.42",
+  "latest_version": "1.1.43",
   "minimum_version": "",
-  "download_url": "https://github.com/chrisbt123/trainermate/releases/download/v1.1.42/TrainerMate-v1.1.42-Setup.exe",
-  "installer_sha256": "7177AF28BBA84E6C5E106F1BC968B5F31E1BDEBF8FEF0BB72E81CB614191B45F",
-  "release_notes": "TrainerMate v1.1.42 improves first-time setup, tests provider logins while they are added, and gives calmer account-service and Zoom guidance."
+  "download_url": "https://github.com/chrisbt123/trainermate/releases/download/v1.1.43/TrainerMate-v1.1.43-Setup.exe",
+  "installer_sha256": "9057170AB6EC1CF362BAAB2B0CA3362419A5D11F6CF22D5C10329DA6A219E8DF",
+  "release_notes": "TrainerMate v1.1.43 ensures Helpdesk replies appear in the correct user conversation and removes unnecessary local support polling."
 }
