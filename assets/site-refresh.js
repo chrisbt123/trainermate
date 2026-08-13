@@ -121,6 +121,8 @@
   }
 
   if (/\/terms\.html$/i.test(window.location.pathname)) {
+    var updated = document.querySelector("main.legal h1 + p");
+    if (updated) updated.textContent = "Last updated: 13 August 2026.";
     Array.prototype.forEach.call(document.querySelectorAll("h2"), function (heading) {
       if (/^7\. Plans and subscriptions/i.test(heading.textContent || "")) {
         heading.textContent = "7. Plans, payments and subscriptions";
