@@ -1,5 +1,5 @@
 (function () {
-  var siteVersion = "20260813-1";
+  var siteVersion = "20260813-2";
   var storageKey = "trainermate-site-version";
   var loaderScript = document.currentScript;
 
@@ -56,6 +56,27 @@
   }
 
   loadSupportAssistant();
+
+  if (/\/download\.html$/i.test(window.location.pathname)) {
+    var downloadHeading = Array.prototype.find.call(document.querySelectorAll("h2"), function (heading) {
+      return /Current Windows release/i.test(heading.textContent || "");
+    });
+    var downloadCard = downloadHeading && downloadHeading.closest(".card");
+    if (downloadCard && !document.getElementById("windows-publisher-explainer")) {
+      var publisherNotice = Array.prototype.find.call(document.querySelectorAll("main .warning"), function (notice) {
+        return /Unknown publisher/i.test(notice.textContent || "");
+      }) || document.createElement("section");
+      publisherNotice.id = "windows-publisher-explainer";
+      publisherNotice.className = "warning";
+      publisherNotice.style.marginBottom = "20px";
+      publisherNotice.setAttribute("aria-labelledby", "publisher-warning-title");
+      publisherNotice.innerHTML = "<h2 id='publisher-warning-title' style='margin:0 0 10px'>Windows may show an Unknown publisher warning</h2>" +
+        "<p style='margin:0 0 10px'><b>This can be expected with the current TrainerMate installer.</b> TrainerMate has not yet purchased a commercial code-signing certificate, so Windows cannot display a verified publisher name. The warning does not by itself mean the file is unsafe.</p>" +
+        "<p style='margin:0 0 10px'>For your protection, continue only when the installer came from this official <b>trainermate.xyz</b> page and its SHA-256 checksum matches the checksum linked beside the download. If the website, filename or checksum is different, cancel the installation and contact support.</p>" +
+        "<p style='margin:0'><b>TrainerMate will never ask you to turn off Microsoft Defender, SmartScreen, antivirus software or another Windows security feature.</b></p>";
+      downloadCard.insertAdjacentElement("beforebegin", publisherNotice);
+    }
+  }
 
   // Keep the public pricing copy consistent with the authenticated Stripe
   // checkout without duplicating payment logic or collecting card details.
