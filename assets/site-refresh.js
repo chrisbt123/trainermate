@@ -1,5 +1,5 @@
 (function () {
-  var siteVersion = "20260812-1";
+  var siteVersion = "20260813-1";
   var storageKey = "trainermate-site-version";
   var loaderScript = document.currentScript;
 
@@ -56,4 +56,42 @@
   }
 
   loadSupportAssistant();
+
+  // Keep the public pricing copy consistent with the authenticated Stripe
+  // checkout without duplicating payment logic or collecting card details.
+  if (/\/pricing\.html$/i.test(window.location.pathname)) {
+    var proHeading = Array.prototype.find.call(document.querySelectorAll("h2"), function (heading) {
+      return /TrainerMate Full/i.test(heading.textContent || "");
+    });
+    var proCard = proHeading && proHeading.closest(".card");
+    if (proCard) {
+      var price = proCard.querySelector(".price");
+      if (price) price.innerHTML = "&pound;5 <span style='font-size:18px;letter-spacing:0'>one month</span>";
+      var summary = price && price.nextElementSibling;
+      if (summary && summary.classList.contains("small")) {
+        summary.innerHTML = "Choose at secure checkout: a <b>&pound;5 one-month pass</b> with no renewal, <b>&pound;5 monthly</b>, or <b>&pound;40 yearly</b> (saving &pound;20 compared with 12 monthly payments).";
+      }
+      var subscribe = proCard.querySelector("a[href*='/billing/subscribe']");
+      if (subscribe) {
+        subscribe.textContent = "Choose a secure payment option";
+        var terms = document.createElement("p");
+        terms.className = "small";
+        terms.style.marginTop = "14px";
+        terms.textContent = "Recurring plans renew until cancelled. Cancel securely at any time: Pro stays active through the paid period, then automatically returns to Free. One-month passes never renew. Stripe handles payment details; TrainerMate never stores card numbers.";
+        subscribe.insertAdjacentElement("afterend", terms);
+      }
+    }
+  }
+
+  if (/\/terms\.html$/i.test(window.location.pathname)) {
+    Array.prototype.forEach.call(document.querySelectorAll("h2"), function (heading) {
+      if (/^7\. Plans and subscriptions/i.test(heading.textContent || "")) {
+        heading.textContent = "7. Plans, payments and subscriptions";
+        if (heading.nextElementSibling) heading.nextElementSibling.textContent = "TrainerMate Free includes limited features. TrainerMate Full is available as a £5 one-month pass with no renewal, a £5 monthly subscription, or a £40 annual subscription. Recurring plans renew until cancelled. Cancellation stops the next renewal; access continues through the period already paid for and then automatically returns to Free. Cancellation does not itself refund the current paid period. Payments and refunds are processed securely by Stripe.";
+      }
+      if (/^9\. Updates/i.test(heading.textContent || "")) {
+        if (heading.nextElementSibling) heading.nextElementSibling.textContent = "TrainerMate can show update notices and may download a staged automatic update when enabled by the administrator. Automatic installation is attempted only for an approved HTTPS installer whose SHA-256 checksum exactly matches the published release. Windows security and publisher prompts are not bypassed. Install updates only from official TrainerMate links.";
+      }
+    });
+  }
 })();
