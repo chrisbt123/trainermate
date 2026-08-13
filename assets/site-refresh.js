@@ -1,7 +1,19 @@
 (function () {
-  var siteVersion = "20260813-3";
+  var siteVersion = "20260813-4";
   var storageKey = "trainermate-site-version";
   var loaderScript = document.currentScript;
+
+  function wakeTrainerMateService() {
+    try {
+      fetch("https://trainermate-admin-api.onrender.com/wake?from=website&_=" + Date.now(), {
+        cache: "no-store",
+        credentials: "omit",
+        mode: "cors"
+      }).catch(function () {
+        // The branded billing gateway keeps retrying if the service is asleep.
+      });
+    } catch (_) {}
+  }
 
   function loadSupportAssistant() {
     if (document.querySelector('script[data-trainermate-support]')) return;
@@ -55,7 +67,8 @@
     // Older browsers still benefit from the versioned assets above.
   }
 
-  loadSupportAssistant();
+  if (!/\/billing\.html$/i.test(window.location.pathname)) loadSupportAssistant();
+  wakeTrainerMateService();
 
   if (/\/download\.html$/i.test(window.location.pathname)) {
     var downloadHeading = Array.prototype.find.call(document.querySelectorAll("h2"), function (heading) {
@@ -97,6 +110,7 @@
       var subscribe = proCard.querySelector("a[href*='/billing/subscribe']");
       if (subscribe) {
         subscribe.textContent = "Choose a secure payment option";
+        subscribe.href = "billing.html";
         var terms = document.createElement("p");
         terms.className = "small";
         terms.style.marginTop = "14px";

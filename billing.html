@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Preparing secure payments — TrainerMate</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:22px;background:linear-gradient(180deg,#eff6ff,#f8fbff);font-family:Segoe UI,Arial,sans-serif;color:#0f172a}.card{width:min(520px,100%);background:#fff;border:1px solid #dbeafe;border-radius:26px;padding:32px;text-align:center;box-shadow:0 24px 70px #0f172a1f}.logo{width:58px;height:58px;margin:0 auto 16px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,#2563eb,#38bdf8);color:#fff;font-weight:950;font-size:20px}h1{margin:0 0 10px;font-size:27px}p{margin:0;color:#52647b;line-height:1.55}.dots{display:flex;justify-content:center;gap:8px;margin:24px 0}.dots span{width:10px;height:10px;border-radius:50%;background:#2563eb;animation:pulse 1.15s infinite ease-in-out}.dots span:nth-child(2){animation-delay:.15s}.dots span:nth-child(3){animation-delay:.3s}@keyframes pulse{0%,80%,100%{opacity:.25;transform:scale(.8)}40%{opacity:1;transform:scale(1.1)}}button{display:none;width:100%;margin-top:20px;padding:12px;border:0;border-radius:999px;background:#2563eb;color:#fff;font:800 15px Segoe UI;cursor:pointer}.small{font-size:13px;margin-top:12px}
+  </style>
+</head>
+<body>
+  <main class="card" role="status" aria-live="polite">
+    <div class="logo">TM</div>
+    <h1>Preparing secure payments</h1>
+    <p id="status">TrainerMate is getting the secure payment service ready. Please keep this page open.</p>
+    <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
+    <p class="small">You will continue automatically. No payment has been taken yet.</p>
+    <button id="retry" type="button">Try again</button>
+  </main>
+  <script>
+    (function(){
+      var wakeUrl="https://trainermate-admin-api.onrender.com/wake";
+      var billingUrl="https://trainermate-admin-api.onrender.com/billing/subscribe";
+      var status=document.getElementById("status");
+      var retry=document.getElementById("retry");
+      var started=Date.now(),attempt=0,running=false;
+      async function check(){
+        if(running)return;running=true;attempt+=1;
+        try{
+          var response=await fetch(wakeUrl+"?from=billing&_="+Date.now(),{cache:"no-store",credentials:"omit",mode:"cors"});
+          var data=response.ok?await response.json():{};
+          if(response.ok&&data.ready===true){status.textContent="Secure payments are ready. Opening TrainerMate now…";window.setTimeout(function(){window.location.replace(billingUrl);},450);return;}
+        }catch(_){}
+        running=false;
+        var elapsed=Date.now()-started;
+        status.textContent=elapsed>12000?"The secure service is still starting. This can take up to a minute the first time.":"TrainerMate is getting the secure payment service ready. Please keep this page open.";
+        if(elapsed>90000){retry.style.display="block";status.textContent="The service is taking longer than usual. Check your internet connection, then try again.";return;}
+        window.setTimeout(check,attempt<4?1200:2500);
+      }
+      retry.addEventListener("click",function(){retry.style.display="none";started=Date.now();attempt=0;check();});
+      check();
+    })();
+  </script>
+  <script src="./assets/site-refresh.js?v=20260813-4"></script>
+</body>
+</html>
