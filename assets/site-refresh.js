@@ -1,5 +1,5 @@
 (function () {
-  var siteVersion = "20260813-2";
+  var siteVersion = "20260813-3";
   var storageKey = "trainermate-site-version";
   var loaderScript = document.currentScript;
 
@@ -70,12 +70,14 @@
       publisherNotice.className = "warning";
       publisherNotice.style.marginBottom = "20px";
       publisherNotice.setAttribute("aria-labelledby", "publisher-warning-title");
-      publisherNotice.innerHTML = "<h2 id='publisher-warning-title' style='margin:0 0 10px'>Windows may show an Unknown publisher warning</h2>" +
-        "<p style='margin:0 0 10px'><b>This can be expected with the current TrainerMate installer.</b> TrainerMate has not yet purchased a commercial code-signing certificate, so Windows cannot display a verified publisher name. The warning does not by itself mean the file is unsafe.</p>" +
-        "<p style='margin:0 0 10px'>For your protection, continue only when the installer came from this official <b>trainermate.xyz</b> page and its SHA-256 checksum matches the checksum linked beside the download. If the website, filename or checksum is different, cancel the installation and contact support.</p>" +
-        "<p style='margin:0'><b>TrainerMate will never ask you to turn off Microsoft Defender, SmartScreen, antivirus software or another Windows security feature.</b></p>";
+      publisherNotice.innerHTML = "<h2 id='publisher-warning-title' style='margin:0 0 10px'>You may see a Windows security message</h2>" +
+        "<p style='margin:0 0 10px'><b>Windows may say “Unknown publisher” when you install TrainerMate. This is expected with the current version.</b> It means Windows cannot yet display our business name on the installer; it is not a message saying that Windows found a virus.</p>" +
+        "<p style='margin:0 0 10px'><b>The simple safety rule:</b> only install TrainerMate after using the blue <b>Download Windows installer</b> button on this official website. Do not install a copy sent as an email attachment or downloaded from another website.</p>" +
+        "<p style='margin:0'>Keep your normal Windows security protection switched on. If you are unsure where the file came from, cancel and contact TrainerMate support.</p>";
       downloadCard.insertAdjacentElement("beforebegin", publisherNotice);
     }
+    var technicalCheck = downloadCard && downloadCard.querySelector("a[href$='.sha256.txt']");
+    if (technicalCheck) technicalCheck.textContent = "Optional technical file check";
   }
 
   // Keep the public pricing copy consistent with the authenticated Stripe
