@@ -1,6 +1,21 @@
 (function () {
-  var siteVersion = "20260602-1";
+  var siteVersion = "20260812-1";
   var storageKey = "trainermate-site-version";
+  var loaderScript = document.currentScript;
+
+  function loadSupportAssistant() {
+    if (document.querySelector('script[data-trainermate-support]')) return;
+    var assetBase = loaderScript && loaderScript.src ? new URL("./", loaderScript.src) : new URL("./assets/", document.baseURI);
+    var stylesheet = document.createElement("link");
+    stylesheet.rel = "stylesheet";
+    stylesheet.href = new URL("support-assistant.css?v=" + siteVersion, assetBase).toString();
+    var assistant = document.createElement("script");
+    assistant.src = new URL("support-assistant.js?v=" + siteVersion, assetBase).toString();
+    assistant.defer = true;
+    assistant.dataset.trainermateSupport = "true";
+    document.head.appendChild(stylesheet);
+    document.head.appendChild(assistant);
+  }
 
   function refreshFor(version) {
     var url = new URL(window.location.href);
@@ -39,4 +54,6 @@
   } catch (_) {
     // Older browsers still benefit from the versioned assets above.
   }
+
+  loadSupportAssistant();
 })();
