@@ -1,7 +1,7 @@
 {
-  "latest_version": "1.1.43",
+  "latest_version": "2.0.0",
   "minimum_version": "",
-  "download_url": "https://github.com/chrisbt123/trainermate/releases/download/v1.1.43/TrainerMate-v1.1.43-Setup.exe",
-  "installer_sha256": "9057170AB6EC1CF362BAAB2B0CA3362419A5D11F6CF22D5C10329DA6A219E8DF",
-  "release_notes": "TrainerMate v1.1.43 ensures Helpdesk replies appear in the correct user conversation and removes unnecessary local support polling."
+  "download_url": "https://github.com/chrisbt123/trainermate/releases/download/v2.0.0/TrainerMate-v2.0.0-Setup.exe",
+  "installer_sha256": "650336591341E77B8FA1BFFE1FBEA3A25AA8A951ED185DB912C263C110D81C81",
+  "release_notes": "TrainerMate v2.0.0 is the production release with installer/updater reliability improvements, provider-scoped scans, corrected completion/report behaviour, Zoom title-change reporting, and approved Zoom integration."
 }
