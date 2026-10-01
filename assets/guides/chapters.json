@@ -1,0 +1,67 @@
+[
+  {
+    "title": "Let\u2019s get you started",
+    "start": 0,
+    "key": "intro"
+  },
+  {
+    "title": "Install TrainerMate",
+    "start": 17.464,
+    "key": "install"
+  },
+  {
+    "title": "Create your free account",
+    "start": 42.464,
+    "key": "register"
+  },
+  {
+    "title": "Connect the right Zoom account",
+    "start": 71.208,
+    "key": "zoom"
+  },
+  {
+    "title": "Check your saved Zoom accounts",
+    "start": 97.6,
+    "key": "zoom-connected"
+  },
+  {
+    "title": "Add and test your provider",
+    "start": 118.112,
+    "key": "provider-add"
+  },
+  {
+    "title": "Run your first check",
+    "start": 146.52,
+    "key": "dashboard"
+  },
+  {
+    "title": "Review what needs attention",
+    "start": 177.688,
+    "key": "courses"
+  },
+  {
+    "title": "Pay for Pro when you\u2019re ready",
+    "start": 207.776,
+    "key": "upgrade"
+  },
+  {
+    "title": "Let Pro keep courses up to date",
+    "start": 242.808,
+    "key": "automation-simple"
+  },
+  {
+    "title": "See your courses in the calendar",
+    "start": 273.352,
+    "key": "calendar"
+  },
+  {
+    "title": "Get help without starting over",
+    "start": 298.808,
+    "key": "help"
+  },
+  {
+    "title": "You\u2019re ready to get started",
+    "start": 329.328,
+    "key": "finish"
+  }
+]

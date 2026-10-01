@@ -1,0 +1,38 @@
+Let’s get you started
+Welcome to TrainerMate. This short guide takes you from installing the app to checking your first courses. We will also show you how to pay for Pro, and where to find help. Pause the video whenever you need to, and follow along at your own pace.
+
+Install TrainerMate
+Start on the TrainerMate website and open the Download page. Choose Install TrainerMate. Windows will take you through the official Microsoft Store installation. If you prefer, use Open Microsoft Store to view the full listing. Once installation has finished, open TrainerMate from your Windows Start menu. Installing the app is free.
+
+Create your free account
+On the login screen, choose Create free account. Enter your email address and choose a password with at least twelve characters, an uppercase letter, a lowercase letter, and a number or symbol. Click Create free account, then check your email and click the confirmation link. Leave TrainerMate open: it will finish automatically. Already registered? Log in with your existing TrainerMate email and password.
+
+Connect the right Zoom account
+TrainerMate guides you through setup in order. First, click Connect Zoom. Your web browser opens Zoom’s own secure approval page. Sign in to the Zoom account you use to deliver courses, check that you have the right account, and choose Allow or Approve. You never enter your Zoom password into TrainerMate. Return to the app and wait for the account to appear as connected.
+
+Check your saved Zoom accounts
+Your saved Zoom account should now say Already connected. If you use more than one Zoom account for training, connect each of them here before continuing. Then choose All connected, add a provider. Later, you will choose which Zoom account belongs to each provider, so it is worth getting this right now.
+
+Add and test your provider
+Choose the organisation that supplies your courses from the Provider list. Select the Zoom account you want TrainerMate to use for that provider. Then enter the same username and password you normally use on that provider’s FOBS website. These are your provider details, not your TrainerMate password. Click Add and test provider, and wait for the login check to finish. Add any other providers you use in the same way.
+
+Run your first check
+When setup is complete, the Dashboard opens. On Free, choose Run full three-week check. TrainerMate reads your upcoming courses, checks existing Zoom details, and prepares supported joining details where needed. Wait for the check to finish and read the result. Other scans lets you choose a particular provider. Pro can check up to twelve weeks ahead. Show FOBS window is optional if you want to watch a manual check.
+
+Review what needs attention
+Open Show all upcoming courses to see the full list. Read the status and notes beside each course. Ready means the saved checks look in order; Please check tells you where to look next. If a course offers Check course only, that button checks the selected course. If TrainerMate asks you to choose an existing Zoom meeting, confirm it really belongs to that course. Always make your final course and joining-details check before delivery.
+
+Pay for Pro when you’re ready
+You can get started on Free. When you want Pro, open Upgrade. The five-pound one-month pass is one payment with no renewal. The five-pound monthly plan renews each month. The forty-pound annual plan renews every twelve months. Choose the option you want, then complete payment on Stripe’s secure checkout. Return to TrainerMate. If Pro has not appeared yet, allow a few moments and choose Check plan now. Do not pay again just because activation is taking a moment.
+
+Let Pro keep courses up to date
+With Pro active, open Automatic updates. Tick Automatically keep my courses up to date, then save the settings. Change schedule lets you choose a small daily check and a wider weekly check, plus notifications. These checks run while TrainerMate is open and the computer is awake and connected. Start with Windows helps keep the app ready. This page controls course checks; Microsoft Store handles updates to the app itself.
+
+See your courses in the calendar
+Pro also includes Calendar. Use the month, week or list view to see your saved courses, or choose This week for a quick look at the week ahead. Please check focuses on courses needing attention. Select a course to see its details and available tools. The calendar shows what TrainerMate has saved, so run a course check when you need fresh provider information.
+
+Get help without starting over
+If something needs attention, open Connections to manage Zoom or your providers. Check and Repair TrainerMate can check saved connection state and refresh Zoom access. For support, open Help, enter a subject and a short message, then choose Send. Read replies in the same Message centre. Include the provider and course date, but never send passwords or card details. The downloadable PDF covers these steps in more detail.
+
+You’re ready to get started
+That is the essentials. Your account, Zoom connection and provider setup stay saved, so you do not need to repeat setup every day. Keep the PDF guide handy, and replay any chapter when you need a reminder. Certificates are coming soon in this released version. Happy training.
